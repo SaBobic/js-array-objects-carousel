@@ -92,3 +92,12 @@ prevArrowElement.addEventListener('click', () => {
   figures[galleryIndex].classList.add('active');
   thumbnails[galleryIndex].classList.add('active');
 });
+
+setInterval(() =>{
+  figures[galleryIndex].classList.remove('active');
+  thumbnails[galleryIndex].classList.remove('active');
+  galleryIndex++;
+  if (galleryIndex >= figures.length) galleryIndex = 0;
+  figures[galleryIndex].classList.add('active');
+  thumbnails[galleryIndex].classList.add('active');
+}, 3000);
