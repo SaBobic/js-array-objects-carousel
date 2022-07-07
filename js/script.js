@@ -35,5 +35,44 @@ const images = [
   },
 ];
 
-// # VARIABILI GLOBALI
+// Targhettizzo sin da subito quello che già so dovrò recuperare prima o poi
 
+const mainGalleryElement = document.getElementById('main-gallery');
+const prevArrowElement = document.getElementById('prev-arrow');
+const nextArrowElement = document.getElementById('next-arrow');
+
+// # Milestone 1
+
+// Creo la stringa della figure per ciascun elemento dell'array e le mostro su schermo
+let figureString = '';
+
+images.forEach(image => {
+  figureString += getFigureString(image);
+});
+
+mainGalleryElement.innerHTML = figureString;
+
+// Mostro la prima immagine dell'array di figure al refresh della pagina
+const figures = document.querySelectorAll('#carousel .gallery figure');
+figures[0].classList.add('active');
+
+// Faccio in modo di navigare tra le figure dell'array al click sulle frecce usando la variabile d'appoggio galleryIndex
+let galleryIndex = 0;
+
+nextArrowElement.addEventListener('click', () => {
+  // Rimuovo la classe active alla figure che viene mostrata su schermo
+  figures[galleryIndex].classList.remove('active');
+  // Aumento l'index di 1
+  galleryIndex++;
+  // Aggiungo la classe active alla figure successiva
+  figures[galleryIndex].classList.add('active');
+});
+
+prevArrowElement.addEventListener('click', () => {
+  // Rimuovo la classe active alla figure che viene mostrata su schermo
+  figures[galleryIndex].classList.remove('active');
+  // Diminuisco l'index di 1
+  galleryIndex--;
+  // Aggiungo la classe active alla figure precedente
+  figures[galleryIndex].classList.add('active');
+});

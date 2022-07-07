@@ -37,19 +37,19 @@ ul{
 
 /* Gallery section */
 
-.gallery img{
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    /* display: none; */
+.gallery figure{
+    display: none;
+    position: relative;
 }
 
-.gallery img.active{
+.gallery figure.active{
     display: block;
 }
 
-.gallery figure{
-    position: relative;
+.gallery figure img{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
 }
 
 .gallery figcaption{
