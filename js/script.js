@@ -97,9 +97,13 @@ prevArrowElement.addEventListener('click', () => {
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
 
 const playButtonElement = document.getElementById('play-pause-button');
-playButtonElement.innerText = "Play";
+const invertButtonElement = document.getElementById('invert-button');
 
 let autoplay;
+
+invertButtonElement.addEventListener('click', () =>{
+  invertButtonElement.innerText === "Invert <---" ? invertButtonElement.innerText = "Invert --->" : invertButtonElement.innerText = "Invert <---";
+});
 
 playButtonElement.addEventListener('click', () =>{
   playButtonElement.innerText === "Play" ? playButtonElement.innerText = "Pause" : playButtonElement.innerText = "Play";
@@ -108,8 +112,15 @@ playButtonElement.addEventListener('click', () =>{
     autoplay = setInterval(() =>{
       figures[galleryIndex].classList.remove('active');
       thumbnails[galleryIndex].classList.remove('active');
-      galleryIndex++;
-      if (galleryIndex >= figures.length) galleryIndex = 0;
+
+      if (invertButtonElement.innerText === "Invert --->"){
+        galleryIndex--;
+        if (galleryIndex < 0) galleryIndex = figures.length - 1;
+      } else {
+        galleryIndex++;
+        if (galleryIndex >= figures.length) galleryIndex = 0;
+      }
+
       figures[galleryIndex].classList.add('active');
       thumbnails[galleryIndex].classList.add('active');
     }, 3000);
@@ -117,6 +128,9 @@ playButtonElement.addEventListener('click', () =>{
     clearInterval(autoplay);
   }
 });
+
+
+
 
 // # BONUS 3
 // Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay
