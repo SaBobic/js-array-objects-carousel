@@ -38,23 +38,29 @@ const images = [
 // Targhettizzo sin da subito quello che già so dovrò recuperare prima o poi
 
 const mainGalleryElement = document.getElementById('main-gallery');
+const mainThumbnailElement = document.getElementById('thumbnail-carousel-list');
 const prevArrowElement = document.getElementById('prev-arrow');
 const nextArrowElement = document.getElementById('next-arrow');
 
 // # Milestone 1
 
-// Creo la stringa della figure per ciascun elemento dell'array e le mostro su schermo
+// Creo la stringa delle figure e delle thumbnail per ciascun elemento dell'array e le mostro su schermo
 let figureString = '';
+let thumbnailString = '';
 
 images.forEach(image => {
   figureString += getFigureString(image);
+  thumbnailString += getThumbnailString(image);
 });
 
 mainGalleryElement.innerHTML = figureString;
+mainThumbnailElement.innerHTML = thumbnailString;
 
 // Mostro la prima immagine dell'array di figure al refresh della pagina
 const figures = document.querySelectorAll('#carousel .gallery figure');
+const thumbnails = document.querySelectorAll('#thumbnail-carousel-list img');
 figures[0].classList.add('active');
+thumbnails[0].classList.add('active');
 
 // Faccio in modo di navigare tra le figure dell'array al click sulle frecce usando la variabile d'appoggio galleryIndex
 let galleryIndex = 0;
@@ -62,6 +68,7 @@ let galleryIndex = 0;
 nextArrowElement.addEventListener('click', () => {
   // Rimuovo la classe active alla figure che viene mostrata su schermo
   figures[galleryIndex].classList.remove('active');
+  thumbnails[galleryIndex].classList.remove('active');
   // Aumento l'index di 1
   galleryIndex++;
   // # Milestone 2
@@ -69,11 +76,13 @@ nextArrowElement.addEventListener('click', () => {
   if (galleryIndex >= figures.length) galleryIndex = 0;
   // Aggiungo la classe active alla figure successiva
   figures[galleryIndex].classList.add('active');
+  thumbnails[galleryIndex].classList.add('active');
 });
 
 prevArrowElement.addEventListener('click', () => {
   // Rimuovo la classe active alla figure che viene mostrata su schermo
   figures[galleryIndex].classList.remove('active');
+  thumbnails[galleryIndex].classList.remove('active');
   // Diminuisco l'index di 1
   galleryIndex--;
   // # Milestone 2
@@ -81,5 +90,5 @@ prevArrowElement.addEventListener('click', () => {
   if (galleryIndex < 0) galleryIndex = figures.length - 1;
   // Aggiungo la classe active alla figure precedente
   figures[galleryIndex].classList.add('active');
+  thumbnails[galleryIndex].classList.add('active');
 });
-

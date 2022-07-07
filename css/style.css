@@ -1,41 +1,17 @@
-/* * Root */
+/* Root */
 
-/* * Generics */
+/* Generics */
 
-ul{
-    list-style-type: none;
-    padding-left: 0;
-}
+/* Utilities */
 
-
-
-/* * Utilities */
-
-/* * Carousel */
+/* Carousel */
 
 #carousel{
     margin: 100px auto;
     width: 800px;
-    position: relative;
 }
 
-#carousel .fa-solid{
-    font-size: 50px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-#prev-arrow{
-    right: 105%;
-}
-
-#next-arrow{
-    left: 105%;
-}
-
-/* Gallery section */
+/* # Gallery section */
 
 .gallery figure{
     display: none;
@@ -60,4 +36,41 @@ ul{
     top: 15px;
     right: 30px;
     left: 30px;
+}
+
+/* # Thumbnails section */
+
+.thumbnail-carousel{
+    display: flex;
+    position: relative;
+}
+
+#thumbnail-carousel-list img{
+    cursor: pointer;
+    width: 20%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+#thumbnail-carousel-list img:hover, #thumbnail-carousel-list img.active{
+    filter: none;
+    outline: #CECECE solid 2px;
+    outline-offset: -2px;
+}
+
+#main-thumbnail-carousel .fa-solid{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    cursor: pointer;
+}
+
+#prev-arrow{
+    right: calc(100% + 20px);
+}
+
+#next-arrow{
+    left: calc(100% + 20px);
 }
