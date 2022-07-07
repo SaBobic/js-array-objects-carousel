@@ -102,10 +102,9 @@ playButtonElement.innerText = "Play";
 let autoplay;
 
 playButtonElement.addEventListener('click', () =>{
-  let isPaused = playButtonElement.innerText === "Play";
   playButtonElement.innerText === "Play" ? playButtonElement.innerText = "Pause" : playButtonElement.innerText = "Play";
 
-  if (isPaused){
+  if (playButtonElement.innerText === "Pause"){
     autoplay = setInterval(() =>{
       figures[galleryIndex].classList.remove('active');
       thumbnails[galleryIndex].classList.remove('active');
