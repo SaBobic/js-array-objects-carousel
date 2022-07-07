@@ -1,0 +1,63 @@
+/* * Root */
+
+/* * Generics */
+
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+
+/* * Utilities */
+
+/* * Carousel */
+
+#carousel{
+    margin: 100px auto;
+    width: 800px;
+    position: relative;
+}
+
+#carousel .fa-solid{
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#prev-arrow{
+    right: 105%;
+}
+
+#next-arrow{
+    left: 105%;
+}
+
+/* Gallery section */
+
+.gallery img{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    /* display: none; */
+}
+
+.gallery img.active{
+    display: block;
+}
+
+.gallery figure{
+    position: relative;
+}
+
+.gallery figcaption{
+    color: #fff;
+    text-shadow: 3px 3px 10px #000;
+    text-align: right;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    left: 30px;
+}
