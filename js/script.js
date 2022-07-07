@@ -64,6 +64,9 @@ nextArrowElement.addEventListener('click', () => {
   figures[galleryIndex].classList.remove('active');
   // Aumento l'index di 1
   galleryIndex++;
+  // # Milestone 2
+  // Se l'index sfora in positivo la length dell'array, si riparte dalla prima figure
+  if (galleryIndex >= figures.length) galleryIndex = 0;
   // Aggiungo la classe active alla figure successiva
   figures[galleryIndex].classList.add('active');
 });
@@ -73,6 +76,10 @@ prevArrowElement.addEventListener('click', () => {
   figures[galleryIndex].classList.remove('active');
   // Diminuisco l'index di 1
   galleryIndex--;
+  // # Milestone 2
+  // Se l'index va in negativo, si riparte dall'ultima figure
+  if (galleryIndex < 0) galleryIndex = figures.length - 1;
   // Aggiungo la classe active alla figure precedente
   figures[galleryIndex].classList.add('active');
 });
+
