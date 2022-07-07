@@ -93,11 +93,31 @@ prevArrowElement.addEventListener('click', () => {
   thumbnails[galleryIndex].classList.add('active');
 });
 
-setInterval(() =>{
-  figures[galleryIndex].classList.remove('active');
-  thumbnails[galleryIndex].classList.remove('active');
-  galleryIndex++;
-  if (galleryIndex >= figures.length) galleryIndex = 0;
-  figures[galleryIndex].classList.add('active');
-  thumbnails[galleryIndex].classList.add('active');
-}, 3000);
+// # BONUS 2
+// Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+
+const playButtonElement = document.getElementById('play-pause-button');
+playButtonElement.innerText = "Play";
+
+let autoplay;
+
+playButtonElement.addEventListener('click', () =>{
+  let isPaused = playButtonElement.innerText === "Play";
+  playButtonElement.innerText === "Play" ? playButtonElement.innerText = "Pause" : playButtonElement.innerText = "Play";
+
+  if (isPaused){
+    autoplay = setInterval(() =>{
+      figures[galleryIndex].classList.remove('active');
+      thumbnails[galleryIndex].classList.remove('active');
+      galleryIndex++;
+      if (galleryIndex >= figures.length) galleryIndex = 0;
+      figures[galleryIndex].classList.add('active');
+      thumbnails[galleryIndex].classList.add('active');
+    }, 3000);
+  } else {
+    clearInterval(autoplay);
+  }
+});
+
+// # BONUS 3
+// Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay
