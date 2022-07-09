@@ -1,76 +1,185 @@
-/* Root */
+/* ! Reset */
 
-/* Generics */
-
-/* Utilities */
-
-/* Carousel */
-
-#carousel{
-    margin: 100px auto;
-    width: 800px;
+*, *::before, *::after, figure{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-/* # Gallery section */
+/* # Root */
 
-.gallery figure{
-    display: none;
-    position: relative;
+/* # Generics */
+
+body{
+    background-color: #00CFAB;
 }
 
-.gallery figure.active{
-    display: block;
+h2{
+    font-size: 34px;
 }
 
-.gallery figure img{
+p{
+    font-size: 18px;
+}
+
+/* # Slider */
+
+.slider{
+    width: 1200px;
+    margin: 75px auto 0;
+    box-shadow: 0 30px 70px #606060;
+}
+
+/* **************************
+# Slideshow
+*/
+
+.slideshow{
     width: 100%;
-    height: 450px;
-    object-fit: cover;
-}
-
-.gallery figcaption{
-    color: #fff;
-    text-shadow: 3px 3px 10px #000;
-    text-align: right;
-    position: absolute;
-    top: 15px;
-    right: 30px;
-    left: 30px;
-}
-
-/* # Thumbnails section */
-
-.thumbnail-carousel{
-    display: flex;
+    height: 600px;
     position: relative;
 }
 
-#thumbnail-carousel-list img{
-    cursor: pointer;
-    width: 20%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.5);
-}
+/* Controls */
 
-#thumbnail-carousel-list img:hover, #thumbnail-carousel-list img.active{
-    filter: none;
-    outline: #CECECE solid 2px;
-    outline-offset: -2px;
-}
-
-#main-thumbnail-carousel .fa-solid{
+.slideshow .control-container{
+    width: 30px;
+    height: 50px;
+    background-color: #151515;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 50px;
+    opacity: 0.85;
     cursor: pointer;
 }
 
-#prev-arrow{
-    right: calc(100% + 20px);
+.slideshow .autoplay-container{
+    width: 120px;
+    height: 50px;
+    background-color: #151515;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    opacity: 0.85;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-#next-arrow{
-    left: calc(100% + 20px);
+.slideshow .control-container.prev{
+    right: calc(100% - 30px);
+}
+
+.slideshow .control-container.next{
+    left: calc(100% - 30px);
+}
+
+.slideshow .control-container i{
+    color: #fff;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slideshow .autoplay-container i{
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.slideshow .autoplay-container i.hidden{
+    display: none;
+}
+
+.slideshow .autoplay-container i:hover{
+    transform: scale(1.2);
+}
+
+.slideshow .control-container.prev i{
+    right: calc(100% - 18px);
+}
+
+.slideshow .control-container.next i{
+    left: calc(100% - 18px);
+}
+
+/* Gallery */
+
+#gallery, #gallery figure, #gallery img{
+    width: 100%;
+    height: 100%;
+}
+
+#gallery figure{
+    position: relative;
+    display: none;
+}
+
+#gallery figure.active{
+    display: block;
+}
+
+#gallery img{
+    object-fit: cover;
+}
+
+#gallery figcaption{
+    color: #fff;
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    right: 50%;
+}
+
+#gallery h2, #gallery p{
+    text-shadow: 0 0 20px #000;
+}
+
+/* **************************
+# Thumbnails
+*/
+
+.thumb{
+    background-color: #24282C;
+    display: flex;
+    align-items: flex-end;
+}
+
+.thumb figure{
+    width: 20%;
+    padding: 10px 5px;
+    background-color: #000;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    cursor: pointer;
+    filter: brightness(0.5);
+}
+
+.thumb figure.active, .thumb figure:hover{
+    filter: none;
+}
+
+.thumb div, .thumb figcaption{
+    width: 50%;
+}
+
+.thumb div{
+    text-align: center;
+}
+
+.thumb img{
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+}
+
+.thumb h2{
+    padding-left: 10px;
+    color: #DEDEDE;
+    font-size: 20px;
+    font-weight: 400;
 }

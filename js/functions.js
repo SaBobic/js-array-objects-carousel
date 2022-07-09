@@ -1,31 +1,19 @@
-/**
- * Funzione per creare la stringa di una figure da inserire nella gallery
- * 
- * @param {*} obj - L'oggetto da cui prendere i valori delle chiavi
- * @returns - La stringa di una figure con immagine e figcaption
- */
-const getFigureString = (obj) =>{
-    const figure = `
-    <figure>
-        <img src="${obj.url}" alt="Gallery Image ${obj.title}">
-        <figcaption>
-            <h2>${obj.title}</h2>
-            <p>${obj.description}</p>
-        </figcaption>
-    </figure>`;
+const getNextFigure = () => {
+    figures[imagesDisplayIndex].classList.remove('active');
+    thumbnails[imagesDisplayIndex].classList.remove('active');
+    imagesDisplayIndex++;
+    if (imagesDisplayIndex >= figures.length) imagesDisplayIndex = 0;
+    figures[imagesDisplayIndex].classList.add('active');
+    thumbnails[imagesDisplayIndex].classList.add('active');
+};
 
-    return figure;
-}
+// ! |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-//! --------------------------------------------------
-
-/**
- * Funzione per creare la stringa di una figure da inserire nella gallery
- * 
- * @param {*} obj - L'oggetto da cui prendere i valori delle chiavi
- * @returns - La stringa di una figure con immagine e figcaption
- */
- const getThumbnailString = (obj) =>{
-    const thumbnail = `<img src="${obj.url}" alt="Thumbnail ${obj.title}">`;
-    return thumbnail;
-}
+const getPrevFigure = () => {
+    figures[imagesDisplayIndex].classList.remove('active');
+    thumbnails[imagesDisplayIndex].classList.remove('active');
+    imagesDisplayIndex--;
+    if (imagesDisplayIndex < 0) imagesDisplayIndex = figures.length - 1;
+    figures[imagesDisplayIndex].classList.add('active');
+    thumbnails[imagesDisplayIndex].classList.add('active');
+};

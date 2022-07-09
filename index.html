@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,33 +20,33 @@
         />
         <!-- My Style -->
         <link rel="stylesheet" href="css/style.css" />
-        <title>Nome Pagina</title>
+        <title>Custom Image Slider</title>
     </head>
 
     <body>
         <div class="container">
-            <!-- Carousel     -->
-            <div id="carousel">
-                <!-- Gallery section -->
-                <div class="gallery" id="main-gallery">
-                    <!-- <figure>
-                        <img src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="">
-                        <figcaption>
-                            <h2>Svezia</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
-                        </figcaption>
-                    </figure> -->
+            <!-- Slider -->
+            <div class="slider">
+                <!-- Slideshow -->
+                <div class="slideshow">
+                    <!-- Gallery -->
+                    <div class="gallery" id="gallery"></div>
+                    <!-- Controls -->
+                    <div class="control-container prev" id="prev-arrow">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="control-container next" id="next-arrow">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="autoplay-container">
+                        <i class="fa-regular fa-circle-play hidden" id="play-button"></i>
+                        <i class="fa-regular fa-circle-stop" id="pause-button"></i>
+                        <i class="fa-solid fa-angles-left" id="left-direction-button"></i>
+                        <i class="fa-solid fa-angles-right hidden" id="right-direction-button"></i>
+                    </div>
                 </div>
-                <div class="thumbnail-carousel mb-3" id="main-thumbnail-carousel">
-                    <i class="fa-solid fa-circle-chevron-left" id="prev-arrow"></i>
-                    <i class="fa-solid fa-circle-chevron-right" id="next-arrow"></i>
-                    
-                    <div id="thumbnail-carousel-list"></div>
-                </div>
-                <div class="text-center">
-                    <button id="play-pause-button">Play</button>
-                    <button id="invert-button">Invert <---</button>
-                </div>
+                <!-- Thumbnails -->
+                <div class="thumb" id="thumb"></div>
             </div>
         </div>
         <!-- JavaScript -->
